@@ -1,0 +1,89 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+.flex {
+  display: flex;
+}
+img {
+  width: 100%;
+  vertical-align: top;
+}
+.nounderline {
+  text-decoration: none !important;
+}
+
+/* Background img & container */
+.backgroundHorseHome {
+  height: 100vh;
+  background-image: url("../img/horseHome.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container {
+  height: 100vh;
+}
+#page {
+  width: 100%;
+}
+
+/* Logo Equidea */
+.logoEquidea {
+  color: white;
+  font-size: 2rem;
+}
+
+/* Home page message */
+.homeMsg {
+  color: white;
+  text-align: center;
+  margin-top: 295px;
+}
+/* My Button */
+.myButton {
+  background-color: #e4685d;
+  border-radius: 20px;
+  border: 1px solid #e4685d;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
+  opacity: 0.9;
+  text-decoration: none;
+}
+.myButton:hover {
+  opacity: 1;
+  text-decoration: none !important;
+  background-color: orangered;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+/* Header */
+header {
+  padding-top: 10px;
+}
+.mainNav {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Footer */
+footer {
+  bottom: 0;
+  position: absolute;
+  font-size: 1.7rem;
+  width: -moz-available;
+  justify-content: space-around;
+  color: white;
+  margin-bottom: 10px;
+}
+.otherLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  font-size: 2.5rem;
+  /* ne s'applique pas à voir pourquoi... */
+  color: orangered !important;
+}
