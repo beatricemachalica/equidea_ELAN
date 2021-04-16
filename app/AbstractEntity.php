@@ -6,7 +6,8 @@ namespace App;
 // Les classes définies comme abstraites ne peuvent pas être instanciées.
 abstract class AbstractEntity
 {
-
+    // création d'un hydratateur récursif
+    // la clé étrangère récupère un objet, on accède à ses données avec son entité
     protected static function hydrate($data, $object)
     {
         // Le fait de déclarer des propriétés ou des méthodes comme statiques 
@@ -17,18 +18,26 @@ abstract class AbstractEntity
         // comme un nouveau objet User "Terence" de la classe User.php (dans model, entity)
 
         foreach ($data as $field => $value) {
-            $fieldArray = explode("_", $field); // ['grade', 'id']
-            // explode() retourne un tableau de chaînes de caractères, 
-            // chacune d'elle étant une sous-chaîne du paramètre string 
-            // extraite en utilisant le séparateur separator. exemples * 1
+            $fieldArray = explode("_", $field);
+            // On explode la data au niveau du separator _ et uniquement à ce niveau là, 
+            // exemple dans le cas d'une clé étrangère : user_id => ["user", "id"]
+            // exemple du fonctionnement d'explode * 1
 
-            if (isset($fieldArray[1]) && $fieldArray[1] === "id") {
-                $classname = "Model\\" . ucfirst($fieldArray[0]) . "Manager";
-                $manager = new $classname;
-                $field = $fieldArray[0]; //devient grade
-                $value = $manager->findOneById($value); //devient un objet Grade
+            $field = $fieldArray[0]; //devient user
+
+            // ["user", "id"] => $fieldArray[0] = "user" // $fieldArray[0] = "id"
+            if (isset($fieldArray[1]) && $fieldArray[1] == "id") {
+                $classname = ucfirst($fieldArray[0]) . "Manager";
+                $FQCName = "Model\Manager" . DS . $classname;
+                // résultat : Model\Manager\UserManager
+
+                $manager = new $FQCName();
+
+                $value = $manager->findOneById($value); //devient un objet
             }
 
+            // On va lier les objets aux setters de la classe
+            // setUser() etc. on va set un objet
             $method = "set" . ucfirst($field);
             if (method_exists($object, $method)) {
                 $object->$method($value);

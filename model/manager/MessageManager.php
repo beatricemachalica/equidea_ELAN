@@ -3,15 +3,14 @@
 namespace Model\Manager;
 
 use App\AbstractManager;
-// importation de AbstractManager grâce au namespace
 
-// UserManager va hériter de toutes les méthodes publiques et protégées, 
+// Le Manager va hériter de toutes les méthodes publiques et protégées, 
 // propriétés et constantes de la classe parente. 
 // Temps qu'une classe n'écrase pas ces méthodes, elles conservent leur fonctionnalité d'origine.
 
-class UserManager extends AbstractManager
+class MessageManager extends AbstractManager
 {
-  private static $classname = "Model\Entity\User";
+  private static $classname = "Model\Entity\Message";
   //fully qualified classname
 
   public function __construct()
@@ -19,12 +18,9 @@ class UserManager extends AbstractManager
     self::connect(self::$classname);
   }
 
-  // public function findOneById(){}
-  // public function findOneByEmail(){}
-
   public function findAll()
   {
-    $sql = "SELECT * FROM user";
+    $sql = "SELECT * FROM messages";
 
     return self::getResults(
       self::select($sql, null, true),

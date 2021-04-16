@@ -31,21 +31,22 @@
       <header>
         <div class="row">
           <div class="col">
-            <a href="#" class="logoEquidea nounderline">Equidea <i class="fas fa-horse-head" style="color:tomato;"></i></a>
+            <a href="?ctrl=home&method=index" style="color: white;" class="logoEquidea nounderline">Equidea <i class="fas fa-horse-head" style="color:tomato;"></i></a>
           </div>
           <nav class="col mainNav">
             <button type="button" class="myButton">
               <a href="?ctrl=user&method=login" style="color:white;" class="nounderline">Log in</a>
             </button>
             <button type="button" class="myButton">
-              <a href="" style="color:white;" class="nounderline">Sign up</a>
+              <a href="?ctrl=user&method=signup" style="color:white;" class="nounderline">Sign up</a>
             </button>
             <button type="button" class="myButton">
               <a href="?ctrl=user&method=usersList" style="color:white;" class="nounderline">See all users</a>
             </button>
-            <!-- <a href="#"></a> -->
-            <!-- <a href="#"></a> -->
-            <!-- <a href="#"></a> -->
+            <button type="button" class="myButton">
+              <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline">See all themes</a>
+            </button>
+            <!-- ajouter menu burger -->
           </nav>
         </div>
       </header>

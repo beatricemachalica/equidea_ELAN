@@ -4,7 +4,7 @@ namespace Model\Entity;
 
 use App\AbstractEntity;
 
-class Topic extends AbstractEntity
+class Message extends AbstractEntity
 {
   private $id;
   private $text;

@@ -1,9 +1,11 @@
-<h1>All Users list</h1>
+<div class="list">
+  <h2>List of users</h2>
 
-<ul>
-  <?php foreach ($data['users'] as $user) { ?>
-    <li>
-      <?= $user->getEmail() ?>
-    </li>
-  <?php } ?>
-</ul>
+  <ul>
+    <?php foreach ($data['users'] as $user) { ?>
+      <li>
+        <?= $user->getPseudonym() ?>
+      </li>
+    <?php } ?>
+  </ul>
+</div>

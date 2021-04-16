@@ -1,23 +1,30 @@
 <?php
 
 namespace Controller;
+// Les espaces de noms, dans leur définition la plus large, représentent un moyen d'encapsuler des éléments. 
 
 use Model\Manager\UserManager;
+// importation de UserManger grâce au namespace
 
+// plusieurs méthodes de UserController vont gérer les actions des users.
 class UserController
 {
   public function login()
   {
-
-    // traitement de la connexion
-
     return [
       "view" => "login.php",
       "data" => null
     ];
   }
 
-  // majuscule ou pas au nom de la fonction ?
+  public function signup()
+  {
+    return [
+      "view" => "signup.php",
+      "data" => null
+    ];
+  }
+
   public function usersList()
   {
 

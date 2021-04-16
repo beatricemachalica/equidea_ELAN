@@ -4,6 +4,9 @@
 .flex {
   display: flex;
 }
+.margin-top {
+  margin-top: 25px;
+}
 img {
   width: 100%;
   vertical-align: top;
@@ -67,6 +70,24 @@ header {
 .mainNav {
   display: flex;
   justify-content: space-around;
+}
+/* Form sign in & sign up */
+.form {
+  color: white;
+  /* faire le formulaire */
+}
+/* Lists */
+.listContainer {
+  color: white;
+  margin-top: 20px;
+}
+.list {
+  color: white;
+  font-size: 1.3rem;
+}
+/* Gallery */
+.gallery {
+  max-height: 75vh;
 }
 
 /* Footer */
