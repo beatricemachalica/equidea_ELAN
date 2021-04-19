@@ -32,9 +32,10 @@ class TopicManager extends AbstractManager
 
   public function findTopicsByCategoy($id)
   {
-    // ajouter ici les infos
-    $sql = "SELECT t.id_topic, t.title, t.dateCreation
+    $sql = "SELECT t.id_topic, t.title, t.dateCreation, u.pseudonym
     FROM topic t
+    INNER JOIN user u
+    ON u.id_user = t.user_id
     WHERE t.theme_id = :id";
 
     return self::getResults(
@@ -46,4 +47,9 @@ class TopicManager extends AbstractManager
       self::$classname
     );
   }
+  // $sql = "SELECT t.id_topic, t.title, t.dateCreation, t.user_id, u.pseudonym
+  // FROM topic t 
+  // INNER JOIN user u
+  // ON u.id_user = t.user_id
+  // WHERE t.theme_id = :id";
 }

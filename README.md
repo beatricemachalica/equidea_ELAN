@@ -1,22 +1,24 @@
-<!-- modifier le README -->
-
 # Projet de création d'un site avec ELAN :
 
 ## Création d'un forum à l'aide de PHP 7, MySQL et Bootstrap
 
-Exercice de templating et de design pattern. Utilisation de l'architecture MVC.
+Exercice de templating et de design pattern. Utilisation de l'architecture MVC (model / view / controller).
 
 Nous avons relié les différentes vues, controleurs, modèles ainsi que la bdd.
 
 ### Fonctionnalités :
 
-- faire apparaitre les listes des utilisateurs, des sujets et thèmes du forum ;
+- listes des utilisateurs, des thèmes du forum ;
+- liste des sujets par thèmes ;
+- les détails des sujets (topics) sont affichés (titre, auteur, date de création) ;
 
 ### Pistes d'amélioration :
 
+- ajouter un sujet (topic) et y ajouter des messages ;
 - création d'un compte, suppression et modification des informations de l'utilisateur ;
 - connexion à un compte et déconnexion ;
 - affichage de messages d'erreurs ;
+- accès administrateur ;
 - animation et amélioration du design.
 
 ### Sécurité :

@@ -1,5 +1,5 @@
 <div class="list">
-  <h2>List of users</h2>
+  <h2 class="title">List of users</h2>
 
   <ul>
     <?php foreach ($data['users'] as $user) { ?>

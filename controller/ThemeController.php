@@ -33,7 +33,7 @@ class ThemeController
     $topics = $topicModel->findTopicsByCategoy($id);
 
     return [
-      "view" => "listOfTopicsByCategories.php",
+      "view" => "listOfTopicsByCategory.php",
       "data" => [
         "theme" => $theme,
         "topics" => $topics

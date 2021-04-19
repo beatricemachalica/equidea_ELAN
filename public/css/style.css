@@ -1,11 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+
 * {
   font-family: "Roboto", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  margin: 0;
+  padding: 0;
 }
+
 .flex {
   display: flex;
 }
-.margin-top {
-  margin-top: 25px;
+.title {
+  margin-top: 35px;
+  text-align: center;
+  text-shadow: black 1px 1px;
+  font-size: 2rem;
+  border-bottom: 3px solid rgba(223, 209, 209, 0.9);
 }
 img {
   width: 100%;
@@ -31,27 +41,54 @@ img {
 
 /* Logo Equidea */
 .logoEquidea {
-  color: white;
+  color: rgb(255, 255, 255);
+  text-shadow: black 1px 1px;
   font-size: 2rem;
 }
 
 /* Home page message */
 .homeMsg {
-  color: white;
-  text-align: center;
-  margin-top: 295px;
+  /* text-align: center; */
+  margin-top: 305px;
 }
+.homeMsg h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem;
+  color: rgb(255, 255, 255);
+  text-shadow: black 1px 1px;
+}
+/* Home page video */
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: -2;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(128, 85, 30);
+  mix-blend-mode: overlay;
+}
+
 /* My Button */
 .myButton {
   background-color: #e4685d;
   border-radius: 20px;
   border: 1px solid #e4685d;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 18px;
   padding: 5px 10px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #b23e35;
-  opacity: 0.9;
+  opacity: 0.95;
   text-decoration: none;
 }
 .myButton:hover {
@@ -74,7 +111,26 @@ header {
 /* Form sign in & sign up */
 .form {
   color: white;
-  /* faire le formulaire */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+}
+.backgroundForm {
+  padding: 45px;
+  background-color: rgba(40, 40, 40, 0.5);
+  border-radius: 25px;
+}
+.form input {
+  background-color: rgba(180, 180, 180, 0.6);
+  border-color: rgb(75, 75, 75);
+  color: white;
+}
+.btnSubmit {
+  width: 100% !important;
+  color: white;
+  background-color: tomato;
+  border-color: tomato;
 }
 /* Lists */
 .listContainer {
@@ -87,7 +143,24 @@ header {
 }
 /* Gallery */
 .gallery {
-  max-height: 75vh;
+  width: 100%;
+  height: 650px;
+  justify-content: center;
+  align-items: center;
+}
+.gallery-items {
+  flex: 0 0 20%;
+  margin: 5px;
+}
+.picture img {
+  border: 2px solid tomato;
+  border-radius: 10px;
+  height: auto;
+  max-width: 100%;
+}
+
+.picture img:hover {
+  box-shadow: 0 0 3px 1px rgb(187, 50, 26);
 }
 
 /* Footer */
@@ -98,6 +171,7 @@ footer {
   width: -moz-available;
   justify-content: space-around;
   color: white;
+  text-shadow: black 1px 1px;
   margin-bottom: 10px;
 }
 .otherLinks {
@@ -106,5 +180,5 @@ footer {
   width: 15%;
   font-size: 2.5rem;
   /* ne s'applique pas à voir pourquoi... */
-  color: orangered !important;
+  color: white !important;
 }

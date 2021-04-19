@@ -31,9 +31,16 @@ class ThemeManager extends AbstractManager
 
   public function findOneById($id)
   {
-    $sql = "SELECT * FROM theme WHERE id_theme = :id";
+    $sql = "SELECT * 
+    FROM theme 
+    WHERE id_theme = :id";
+
     return self::getOneOrNullResult(
-      self::select($sql, ["id" => $id], true),
+      self::select(
+        $sql,
+        ["id" => $id],
+        true
+      ),
       self::$classname
     );
   }
