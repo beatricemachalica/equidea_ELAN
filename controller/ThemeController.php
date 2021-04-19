@@ -30,7 +30,7 @@ class ThemeController
     $topicModel = new TopicManager;
 
     $theme = $themeModel->findOneById($id);
-    $topics = $topicModel->findTopicsByCategoy($id);
+    $topics = $topicModel->findTopicsByCategory($id);
 
     return [
       "view" => "listOfTopicsByCategory.php",

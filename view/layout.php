@@ -55,7 +55,10 @@
             <button type="button" class="myButton">
               <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline">See all themes</a>
             </button>
-            <!-- ajouter menu burger -->
+
+            <!-- <a href="#" style="color:white;" class="nounderline">My Account</a> -->
+            <!-- <a href="#" style="color:white;" class="nounderline">Log out</a> -->
+
           </nav>
         </div>
       </header>

@@ -19,8 +19,35 @@ class UserManager extends AbstractManager
     self::connect(self::$classname);
   }
 
-  // public function findOneById(){}
-  // public function findOneByEmail(){}
+  public function findOneById($id)
+  {
+    $sql = "SELECT * FROM user
+    WHERE id_user = :id";
+
+    return self::getOneOrNullResult(
+      self::select(
+        $sql,
+        ["id" => $id],
+        false
+      ),
+      self::$classname
+    );
+  }
+
+  public function findOneByEmail($email)
+  {
+    $sql = "SELECT * FROM user
+    WHERE email = :email";
+
+    return self::getOneOrNullResult(
+      self::select(
+        $sql,
+        ["email" => $email],
+        false
+      ),
+      self::$classname
+    );
+  }
 
   public function findAll()
   {

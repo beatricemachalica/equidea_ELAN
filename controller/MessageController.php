@@ -19,4 +19,9 @@ class MessageController
       ]
     ];
   }
+
+  // méthode pour ajouter un message (répondre)
+  // méthode pour modifier son message
+  // méthode pour supprimer son message
+
 }

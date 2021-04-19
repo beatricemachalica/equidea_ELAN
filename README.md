@@ -4,22 +4,26 @@
 
 Exercice de templating et de design pattern. Utilisation de l'architecture MVC (model / view / controller).
 
-Nous avons relié les différentes vues, controleurs, modèles ainsi que la bdd.
+Nous avons relié les différentes vues, controleurs, modèles ainsi que la BDD.
+
+Il est possible de consulter les consignes du projet en format PDF dans le dossier "PDF" dans le dossier "Public".
+
+Réalisation d'un mock-up à l'aide d'AbodeXD (également en format PDF dans le dossier PDF dans le dossier public) : premier mock-up dont le design risque d'évoluer en fonction des fonctionnalités.
 
 ### Fonctionnalités :
 
-- listes des utilisateurs, des thèmes du forum ;
-- liste des sujets par thèmes ;
-- les détails des sujets (topics) sont affichés (titre, auteur, date de création) ;
+- liste des utilisateurs du forum ;
+- liste des grands thèmes du forum ;
+- liste des sujets par thème, ainsi que la date de création et l'auteur du sujet ;
 
 ### Pistes d'amélioration :
 
-- ajouter un sujet (topic) et y ajouter des messages ;
+- ajout des messages dans les sujets (topics) ;
 - création d'un compte, suppression et modification des informations de l'utilisateur ;
 - connexion à un compte et déconnexion ;
-- affichage de messages d'erreurs ;
+- affichage des messages d'erreurs en cas de besoin ;
 - accès administrateur ;
-- animation et amélioration du design.
+- animation et amélioration du design ;
 
 ### Sécurité :
 

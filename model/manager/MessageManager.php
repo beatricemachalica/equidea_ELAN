@@ -27,4 +27,20 @@ class MessageManager extends AbstractManager
       self::$classname
     );
   }
+
+  public function findMessagesByTopic($id)
+  {
+    $sql = "SELECT * FROM messages
+    WHERE topic_id = :id
+    ORDER BY dateCreation DESC";
+
+    return self::getResults(
+      self::select(
+        $sql,
+        ["id" => $id],
+        true
+      ),
+      self::$classname
+    );
+  }
 }

@@ -39,7 +39,7 @@ class ThemeManager extends AbstractManager
       self::select(
         $sql,
         ["id" => $id],
-        true
+        false
       ),
       self::$classname
     );

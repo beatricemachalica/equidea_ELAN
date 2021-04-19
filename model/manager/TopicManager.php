@@ -30,9 +30,25 @@ class TopicManager extends AbstractManager
     );
   }
 
-  public function findTopicsByCategoy($id)
+  public function findOneById($id)
   {
-    $sql = "SELECT t.id_topic, t.title, t.dateCreation, u.pseudonym
+    $sql = "SELECT * 
+    FROM topic 
+    WHERE id_topic = :id";
+
+    return self::getOneOrNullResult(
+      self::select(
+        $sql,
+        ["id" => $id],
+        false
+      ),
+      self::$classname
+    );
+  }
+
+  public function findTopicsByCategory($id)
+  {
+    $sql = "SELECT t.id_topic, t.title, t.dateCreation, t.user_id, u.pseudonym
     FROM topic t
     INNER JOIN user u
     ON u.id_user = t.user_id
@@ -47,9 +63,12 @@ class TopicManager extends AbstractManager
       self::$classname
     );
   }
-  // $sql = "SELECT t.id_topic, t.title, t.dateCreation, t.user_id, u.pseudonym
-  // FROM topic t 
-  // INNER JOIN user u
-  // ON u.id_user = t.user_id
-  // WHERE t.theme_id = :id";
+
+  public function addOneTopic()
+  {
+    $sql = "INSERT INTO ...";
+    return self::update($sql, [
+      'truc' => $truc
+    ]);
+  }
 }

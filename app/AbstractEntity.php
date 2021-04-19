@@ -33,7 +33,7 @@ abstract class AbstractEntity
 
                 $manager = new $FQCName();
 
-                $value = $manager->findOneById($value); //devient un objet
+                $value = $manager->findOneById($value); //devient un objet et va injecter la valeur
             }
 
             // On va lier les objets aux setters de la classe
