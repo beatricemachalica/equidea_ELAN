@@ -64,11 +64,10 @@ class TopicManager extends AbstractManager
     );
   }
 
+  // code à finir
   public function addOneTopic()
   {
     $sql = "INSERT INTO ...";
-    return self::update($sql, [
-      'truc' => $truc
-    ]);
+    return self::update($sql, null);
   }
 }

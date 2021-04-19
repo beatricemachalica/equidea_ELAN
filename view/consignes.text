@@ -1,0 +1,5 @@
+Ajouter :
+un profil utilisateur avec les détails de l'utilisateur :
+  - quels messages il a envoyé etc.
+  - combien de topics il a créé etc.
+utilisateur en session a uniquement accès à sa session

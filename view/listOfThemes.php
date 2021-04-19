@@ -17,7 +17,7 @@
 
           <!-- title -->
           <figcaption>
-            <a style="color:white" href="?ctrl=theme&method=listTopicsByCategory&id=<?= $theme->getId(); ?>">
+            <a style="color:white" class="nounderline" href="?ctrl=theme&method=listTopicsByCategory&id=<?= $theme->getId(); ?>">
               <?= $name ?>
             </a>
           </figcaption>
