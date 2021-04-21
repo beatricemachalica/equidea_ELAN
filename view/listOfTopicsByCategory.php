@@ -9,6 +9,11 @@ $theme = $data['theme'];
     <?php echo "<span style ='color:rgb(248, 156, 139);'>" . $data['theme']->getTitle() . "</span>"; ?>
   </h2>
 
+  <!-- le nombre de topics -->
+  <p class="text-center infoOfListTopics">
+    There is <?= count($data['topics']); ?> topics for this theme. Feel free to add a new topic !
+  </p>
+
   <!-- Topics -->
   <div class="list">
     <ul class="list-unstyled">

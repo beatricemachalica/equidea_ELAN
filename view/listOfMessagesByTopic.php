@@ -9,6 +9,11 @@ $topic = $data['topic'];
     <?php echo "<span style ='color:rgb(248, 156, 139);'>" . $data['topic']->getTitle() . "</span>"; ?>
   </h2>
 
+  <!-- le nombre de topics -->
+  <p class="text-center infoOfListTopics">
+    There is <?= count($data['messages']); ?> messages in this topic.
+  </p>
+
   <!-- Messages -->
   <div class="list">
     <ul class="list-unstyled">
@@ -19,7 +24,7 @@ $topic = $data['topic'];
           <li>
             <span style='color:rgb(248, 156, 139);'>Posted by <?= $message->getUser()->getPseudonym(); ?>.</span>
             On <?= $message->getDateCreation(); ?>
-            <span class="badge"><a href="#" class="nounderline" style="color: white;">Reply to this member</a></span>
+            <!-- <span class="badge"><a href="#" class="nounderline" style="color: white;">Reply to this member</a></span> -->
           </li>
         </div>
       <?php } ?>

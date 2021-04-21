@@ -12,7 +12,8 @@
     <tbody>
       <?php foreach ($data['users'] as $user) { ?>
         <tr>
-          <td><?= $user->getPseudonym(); ?></td>
+          <!-- créer la méthode pour afficher le profil de l'utilisateur -->
+          <td><a href="?ctrl=user&method=#&id=<?= $user->getId(); ?>" style="color: white;"><?= $user->getPseudonym(); ?></a></td>
           <td><?= $user->getDateRegistration(); ?></td>
           <td><?= $user->getStatus(); ?></td>
         </tr>

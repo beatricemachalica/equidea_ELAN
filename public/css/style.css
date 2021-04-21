@@ -169,7 +169,7 @@ video {
   transition: 0.3s ease-in-out;
 }
 .picture img:hover {
-  scale: 1.1;
+  scale: 1.05;
 }
 .gallery figcaption {
   text-align: center;
@@ -179,7 +179,9 @@ video {
 .topicsTitles {
   font-size: 1.5rem;
   color: rgb(248, 156, 139) !important;
-  font-weight: bold;
+}
+.infoOfListTopics {
+  font-size: 1.2rem;
 }
 
 /* List of Messages */
