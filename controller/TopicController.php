@@ -37,8 +37,11 @@ class TopicController
       $topic = filter_input(INPUT_POST, "topicTitle", FILTER_SANITIZE_STRING);
       $model = new TopicManager;
 
+      // on vérifie si le topic n'existe pas déjà
       if (!$model->findOneByName($topic)) {
         $model->addTopic($topic);
+        // ajouter le topic avec l'id du theme
+        // ajouter le premier message du nouveau topic
         header("Location:?ctrl=theme&method=themeList"); //rediriger vers une autre page ?
       } else {
         var_dump("le topic existe déjà");

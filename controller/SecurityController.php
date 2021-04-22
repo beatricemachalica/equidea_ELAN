@@ -67,15 +67,15 @@ class SecurityController
   {
     if (!empty($_POST)) {
 
-      $userName = filter_input(INPUT_POST, "userName", FILTER_SANITIZE_STRING);
-      $passWord = filter_input(INPUT_POST, "firstPassword", FILTER_SANITIZE_STRING);
+      $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+      $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
       $model = new UserManager();
 
-      if ($user = $model->findOneByPseudo($userName)) {
-        if (password_verify($passWord, $user->getPassword())) {
+      if ($user = $model->findOneByPseudo($username)) {
+        if (password_verify($password, $user->getPassword())) {
 
-          Session::setUser($userName);
+          Session::setUser($username);
           // on va mettre l'utilisateur en session
           Router::redirectTo("home");
           // redirection

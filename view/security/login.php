@@ -10,16 +10,17 @@ if (App\Session::getUser()) {
 
 <div class="loginDiv form">
   <div class="backgroundForm">
-    <form action="#" method="POST">
+    <form action="?ctrl=security&method=login" method="POST">
       <h2>Please enter your login details </h2>
+
       <div class="form-group">
-        <label for="exampleInputEmail1">Username</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="inputEmail1">Username</label>
+        <input type="text" name="username" class="form-control" id="exampleInputEmail1">
       </div>
 
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
       </div>
 
       <button type="submit" class="btn btn-warning btnSubmit">Log in</button>
