@@ -32,6 +32,7 @@ $theme = $data['theme'];
       <?php } ?>
       <button type="button" class="myButton">
         <!-- finir le code pour cette fonctionnalité dans TopicController -->
+        <!-- erreur dans le ctrl chez Stéphane ? à voir -->
         <a href="?ctrl=topic&method=addNewTopic" class="nounderline" style="color: white;">New Topic</a>
       </button>
     </ul>

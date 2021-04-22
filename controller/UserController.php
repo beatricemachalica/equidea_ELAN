@@ -12,7 +12,7 @@ class UserController
   public function login()
   {
     return [
-      "view" => "login.php",
+      "view" => "security/login.php",
       "data" => null
     ];
   }
@@ -20,7 +20,7 @@ class UserController
   public function signup()
   {
     return [
-      "view" => "signup.php",
+      "view" => "security/register.php",
       "data" => null
     ];
   }

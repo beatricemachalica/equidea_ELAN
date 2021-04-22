@@ -1,12 +1,16 @@
 <?php
 
+if (App\Session::getUser()) {
+  echo "<p> You are already connected </p>" . App\Session::getUser();
+}
+
 ?>
 
 <!-- Log in Form -->
 
 <div class="loginDiv form">
   <div class="backgroundForm">
-    <form action="#" method="$_POST">
+    <form action="#" method="POST">
       <h2>Please enter your login details </h2>
       <div class="form-group">
         <label for="exampleInputEmail1">Username</label>

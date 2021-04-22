@@ -39,27 +39,42 @@
       <!-- Website Header -->
       <header>
         <div class="row">
+
+          <!-- logo -->
           <div class="col">
             <a href="?ctrl=home&method=index" style="color: white;" class="logoEquidea nounderline">Equidea <i class="fas fa-horse-head" style="color:tomato;"></i></a>
           </div>
-          <nav class="col mainNav">
-            <button type="button" class="myButton">
-              <a href="?ctrl=user&method=login" style="color:white;" class="nounderline">Log in</a>
-            </button>
-            <button type="button" class="myButton">
-              <a href="?ctrl=user&method=signup" style="color:white;" class="nounderline">Sign up</a>
-            </button>
-            <button type="button" class="myButton">
-              <a href="?ctrl=user&method=usersList" style="color:white;" class="nounderline">See all users</a>
-            </button>
-            <button type="button" class="myButton">
-              <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline">See all themes</a>
-            </button>
 
-            <!-- <a href="#" style="color:white;" class="nounderline">My Account</a> -->
-            <!-- <a href="#" style="color:white;" class="nounderline">Log out</a> -->
+          <!-- nav -->
+          <?php if (App\Session::getUser()) {
+          ?>
+            <nav class="col mainNav">
+              <button type="button" class="myButton">
+                <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline">See all themes</a>
+              </button>
+              <button type="button" class="myButton">
+                <a href="?ctrl=###&method=####" style="color:white;" class="nounderline">Log Out</a>
+              </button>
+            </nav>
+          <?php
+          } else {
+          ?>
+            <nav class="col mainNav">
+              <button type="button" class="myButton">
+                <a href="?ctrl=user&method=login" style="color:white;" class="nounderline">Log in</a>
+              </button>
+              <button type="button" class="myButton">
+                <a href="?ctrl=user&method=signup" style="color:white;" class="nounderline">Sign up</a>
+              </button>
+              <button type="button" class="myButton">
+                <a href="?ctrl=user&method=usersList" style="color:white;" class="nounderline">See all users</a>
+              </button>
+            </nav>
+          <?php } ?>
 
-          </nav>
+          <!-- <a href="#" style="color:white;" class="nounderline">My Account</a> -->
+          <!-- <a href="#" style="color:white;" class="nounderline">Log out</a> -->
+
         </div>
       </header>
 

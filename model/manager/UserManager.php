@@ -49,6 +49,37 @@ class UserManager extends AbstractManager
     );
   }
 
+  public function addUser($userName, $email, $hash)
+  {
+    $sql = "INSERT INTO user (pseudonym, password, email)
+    VALUES (:username, :password, :email)";
+
+    return self::create(
+      $sql,
+      [
+        "username" => $userName,
+        "email" => $email,
+        "password" => $hash
+      ]
+    );
+  }
+
+  public function findOneByPseudo($username)
+  {
+    $sql = "SELECT * 
+    FROM user
+    WHERE pseudonym = :pseudonym";
+
+    return self::getOneOrNullResult(
+      self::select(
+        $sql,
+        ["pseudonym" => $username],
+        false
+      ),
+      self::$classname
+    );
+  }
+
   public function findAll()
   {
     $sql = "SELECT * FROM user";

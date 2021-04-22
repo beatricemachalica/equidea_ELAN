@@ -15,11 +15,12 @@ Réalisation d'un mock-up à l'aide d'AbodeXD (également en format PDF dans le 
 - liste des utilisateurs du forum ;
 - liste des grands thèmes du forum ;
 - liste des sujets par thème, ainsi que la date de création et l'auteur du sujet ;
+- inscription d'un nouveau utilisateur ;
 
 ### Pistes d'amélioration :
 
 - ajout des messages dans les sujets (topics) ;
-- création d'un compte, suppression et modification des informations de l'utilisateur ;
+- suppression et modification du compte et des informations de l'utilisateur ;
 - connexion à un compte et déconnexion ;
 - affichage des messages d'erreurs en cas de besoin ;
 - accès administrateur ;

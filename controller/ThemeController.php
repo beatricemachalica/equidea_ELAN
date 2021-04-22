@@ -40,4 +40,32 @@ class ThemeController
       ]
     ];
   }
+
+  // méthode pour ajouter un nouveau theme
+  public function addNewTheme()
+  {
+    // si le formulaire n'est pas vide
+    if (!empty($_POST['themeTitle'])) {
+
+      // on va prémunir des failles XSS, on va utiliser filter input
+      $theme = filter_input(INPUT_POST, "themeTitle", FILTER_SANITIZE_STRING);
+      $model = new ThemeManager;
+
+      // si le nom du theme n'existe pas déjà en bdd
+      if (!$model->findOneByName($theme)) {
+        $model->addTheme($theme);
+        // ! = "s'il n'y est PAS" on ajoute le nouveau theme
+
+        // redirection vers la liste des themes.
+        header("Location:?ctrl=theme&method=themeList");
+      } else {
+        var_dump("This theme already exists");
+        // sinon on affiche que le theme existe déjà. 
+      }
+    }
+    return [
+      "view" => 'createTheme.php',
+      "data" => null
+    ];
+  }
 }

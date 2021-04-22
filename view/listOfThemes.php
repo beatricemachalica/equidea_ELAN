@@ -25,6 +25,12 @@
       </div>
 
     <?php } ?>
-  </section>
 
+    <!-- add a new theme button -->
+    <span class="badge badge-secondary">
+      <a href="?ctrl=theme&method=addNewTheme" class="nounderline" style="color: white;">
+        <i class="fas fa-plus"></i>
+      </a>
+    </span>
+  </section>
 </div>

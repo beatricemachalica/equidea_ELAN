@@ -30,14 +30,24 @@ class TopicController
   }
 
   // méthodes pour ajouter un nouveau sujet
-  public function addNewTopicForm()
-  {
-    // renvoyer un form pour le nouveau topic
-    // la method addNewTopic
-  }
   public function addNewTopic()
   {
-    $topicModel = new TopicManager;
-    $newTopic = $topicModel->addOneTopic();
+    if (!empty($_POST['topicTitle'])) {
+
+      $topic = filter_input(INPUT_POST, "topicTitle", FILTER_SANITIZE_STRING);
+      $model = new TopicManager;
+
+      if (!$model->findOneByName($topic)) {
+        $model->addTopic($topic);
+        header("Location:?ctrl=theme&method=themeList"); //rediriger vers une autre page ?
+      } else {
+        var_dump("le topic existe déjà");
+      }
+    }
+
+    return [
+      "view" => 'createTopic.php',
+      "data" => null
+    ];
   }
 }

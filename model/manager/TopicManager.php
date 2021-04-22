@@ -64,10 +64,27 @@ class TopicManager extends AbstractManager
     );
   }
 
-  // code à finir
-  public function addOneTopic()
+  public function findOneByName($name)
   {
-    $sql = "INSERT INTO ...";
-    return self::update($sql, null);
+    $sql = "SELECT title
+    FROM topic
+    WHERE title = :title";
+    return self::select(
+      $sql,
+      ["title" => $name],
+      false
+    );
+  }
+
+  public function addTopic($name)
+  {
+    $sql = "INSERT INTO topic (title)
+    VALUES (:title)";
+    //voir pour theme_id ; user_id et "lock" (null ? ou par défaut open ?)
+    // il faut récupérer le theme_id dans le form et récupérer user_id en session ?
+    return self::create(
+      $sql,
+      ["title" => $name]
+    );
   }
 }

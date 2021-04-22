@@ -44,4 +44,29 @@ class ThemeManager extends AbstractManager
       self::$classname
     );
   }
+
+  public function findOneByName($name)
+  {
+    $sql = "SELECT *
+    FROM theme
+    WHERE title = :title";
+    return self::getOneOrNullResult(
+      self::select(
+        $sql,
+        ["title" => $name],
+        false
+      ),
+      self::$classname
+    );
+  }
+
+  public function addTheme($name)
+  {
+    $sql = "INSERT INTO theme (title)
+    VALUES (:title)";
+    return self::create(
+      $sql,
+      ["title" => $name]
+    );
+  }
 }
