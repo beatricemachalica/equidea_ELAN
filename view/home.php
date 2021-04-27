@@ -1,6 +1,11 @@
 <div class="homeMsg">
-  <h2>Welcome riders</h2>
 
-  <!-- ouvrir PHP $_SESSION['user']->getPseudonym(); fermer PHP -->
+  <?php if (App\Session::getUser()) {
+
+    echo "<h2>Welcome " . $_SESSION['user'] . "</h2>";
+  } else { ?>
+    <h2>Welcome riders</h2>
+
+  <?php } ?>
 
 </div>

@@ -47,7 +47,7 @@ class ThemeController
     // si le formulaire n'est pas vide
     if (!empty($_POST['themeTitle'])) {
 
-      // on va prémunir des failles XSS, on va utiliser filter input
+      // on va se prémunir des failles XSS, on va utiliser filter input
       $theme = filter_input(INPUT_POST, "themeTitle", FILTER_SANITIZE_STRING);
       $model = new ThemeManager;
 

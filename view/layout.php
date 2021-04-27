@@ -25,90 +25,92 @@
 </head>
 
 <body>
+  <!-- Backgrounds -->
+
   <!-- Video Home page -->
   <?php if (!isset($_GET['ctrl']) || $_GET['ctrl'] == 'home') {
   ?>
     <video src="<?= VIDEO_PATH ?>pexels-horses.mp4" muted loop autoplay></video>
     <div class="overlay"></div>
-  <?php } else { ?>
-    <div class="backgroundHorseHome">
-    <?php } ?>
+    <!-- Login and Signup background -->
+  <?php } elseif (!isset($_GET['method']) || $_GET['method'] == 'login' || $_GET['method'] == 'signup') {
+  ?>
+    <div class="backgroundHorse">
+      <!-- default background -->
+    <?php } else { ?>
+      <!-- <div class="defaultBackground"> -->
+      <div class="backgroundHorse">
 
-    <div class="container">
+      <?php } ?>
 
-      <!-- Website Header -->
-      <header>
-        <div class="row">
+      <div class="container">
 
-          <!-- logo -->
-          <div class="col">
-            <a href="?ctrl=home&method=index" style="color: white;" class="logoEquidea nounderline">Equidea <i class="fas fa-horse-head" style="color:tomato;"></i></a>
-          </div>
+        <!-- Website Header -->
+        <header>
+          <div class="row">
 
-          <!-- nav -->
-          <nav class="col mainNav">
-            <?php
-            if (App\Session::getUser()) {
-            ?>
-              <button type="button" class="myButton">
-                <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline">See all themes</a>
-              </button>
-              <button type="button" class="myButton">
-                <a href="?ctrl=###&method=####" style="color:white;" class="nounderline">
+            <!-- logo -->
+            <div class="col">
+              <a href="?ctrl=home&method=index" style="color: white;" class="logoEquidea nounderline">Equidea <i class="fas fa-horse-head" style="color:tomato;"></i></a>
+            </div>
+
+            <!-- nav -->
+            <nav class="col-7 mainNav">
+              <?php
+              if (App\Session::getUser()) {
+              ?>
+                <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline nav-link">All themes</a>
+                <a href="?ctrl=user&method=usersList" style="color:white;" class="nounderline nav-link">All users</a>
+                <a href="?ctrl=###&method=####" style="color:white;" class="nounderline nav-link">
                   <i class="fas fa-user"></i> My account
                 </a>
-              </button>
-              <button type="button" class="myButton">
-                <a href="?ctrl=security&method=logout" style="color:white;" class="nounderline">Log Out</a>
-              </button>
-            <?php
-            } else {
-            ?>
-              <nav class="col mainNav">
-                <button type="button" class="myButton">
-                  <a href="?ctrl=user&method=login" style="color:white;" class="nounderline">Log in</a>
-                </button>
-                <button type="button" class="myButton">
-                  <a href="?ctrl=user&method=signup" style="color:white;" class="nounderline">Sign up</a>
-                </button>
-                <!-- ajouter la condition connexion d'un admin pour afficher la liste des membres -->
-                <button type="button" class="myButton">
-                  <a href="?ctrl=user&method=usersList" style="color:white;" class="nounderline">See all users</a>
-                </button>
-              <?php } ?>
-              </nav>
+                <a href="?ctrl=security&method=logout" style="color:white;" class="nounderline nav-link">Log Out</a>
+                <?php
+                // } elseif (App\Session::getUser() == 'admin') {
+                // rajouter les boutons uniquement pour l'admin
+                ?>
+              <?php } else { ?>
+                <nav class="col mainNav">
+                  <button type="button" class="myButton">
+                    <a href="?ctrl=user&method=login" style="color:white;" class="nounderline">Log in</a>
+                  </button>
+                  <button type="button" class="myButton">
+                    <a href="?ctrl=user&method=signup" style="color:white;" class="nounderline">Sign up</a>
+                  </button>
+                <?php } ?>
+                </nav>
 
-              <!-- <a href="#" style="color:white;" class="nounderline">My Account</a> -->
-              <!-- <a href="#" style="color:white;" class="nounderline">Log out</a> -->
+                <!-- <a href="#" style="color:white;" class="nounderline">My Account</a> -->
+                <!-- <a href="#" style="color:white;" class="nounderline">Log out</a> -->
 
-        </div>
-      </header>
+          </div>
+        </header>
 
-      <!-- Main Content -->
-      <main class="row">
-        <div id="page" class="mainContent">
-          <?= $page ?>
-        </div>
-      </main>
+        <!-- Main Content -->
+        <main class="row">
+          <div id="page" class="mainContent">
+            <?= $page ?>
+          </div>
+        </main>
 
-      <!-- footer -->
-      <footer class="flex">
-        <article class="Copyright">
-          Copyright © 2021 Béatrice Machalica
-        </article>
-        <div class="otherLinks">
-          <a href="https://www.youtube.com/" style="color: white;"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.instagram.com/?hl=fr" style="color: white;"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/" style="color: white;"><i class="fab fa-facebook-square"></i></a>
-        </div>
-      </footer>
+        <!-- footer -->
+        <footer class="flex">
+          <article class="Copyright">
+            Copyright © 2021 Béatrice Machalica
+          </article>
+          <div class="otherLinks">
+            <a href="https://www.youtube.com/" style="color: white;"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/?hl=fr" style="color: white;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" style="color: white;"><i class="fab fa-facebook-square"></i></a>
+          </div>
+        </footer>
 
-    </div>
-    </div>
+      </div>
+      </div>
 
-    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+      <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
 </body>
 

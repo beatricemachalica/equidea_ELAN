@@ -2,7 +2,6 @@
 
 * {
   font-family: "Roboto", sans-serif;
-  /* font-family: "Poppins", sans-serif; */
   margin: 0;
   padding: 0;
 }
@@ -26,7 +25,7 @@ img {
 }
 
 /* Background img & container */
-.backgroundHorseHome {
+.backgroundHorse {
   height: 100vh;
   background-image: url("../img/horseHome.jpg");
   background-size: cover;
@@ -51,8 +50,14 @@ header {
 /* Logo Equidea */
 .logoEquidea {
   color: rgb(255, 255, 255);
-  text-shadow: black 1px 1px;
+  text-shadow: rgba(50, 50, 50, 0.8) 1px 1px;
   font-size: 2rem;
+}
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  text-shadow: rgba(50, 50, 50, 0.8) 1px 1px;
 }
 
 /* Home page message */
@@ -64,7 +69,7 @@ header {
   font-family: "Poppins", sans-serif;
   font-size: 3.5rem;
   color: rgb(255, 255, 255);
-  text-shadow: black 1px 1px;
+  text-shadow: rgba(50, 50, 50, 0.8) 1px 1px;
 }
 
 /* Home page video */
@@ -110,6 +115,9 @@ video {
   position: relative;
   top: 1px;
 }
+.buttonDiv {
+  justify-content: center;
+}
 
 /* Form sign in & sign up */
 .form {
@@ -143,6 +151,8 @@ video {
   background-color: rgba(40, 40, 40, 0.5);
   padding: 15px;
   border-radius: 20px;
+  max-height: 700px;
+  overflow: auto;
 }
 .list {
   color: white;
@@ -192,6 +202,19 @@ video {
   margin: 10px;
 }
 
+/* bug here = random height */
+.dropdown-menu {
+  /* top: 240px !important; */
+  width: 100% !important;
+  color: white;
+  background-color: rgba(40, 40, 40, 0.8);
+  padding: 15px;
+  border-radius: 20px;
+}
+.dropdown-menu .myButton {
+  width: 10% !important;
+}
+
 /* Footer */
 footer {
   bottom: 0;
@@ -200,7 +223,7 @@ footer {
   width: -moz-available;
   justify-content: space-around;
   color: white;
-  text-shadow: black 1px 1px;
+  text-shadow: rgba(50, 50, 50, 0.8) 1px 1px;
   margin-bottom: 10px;
 }
 .otherLinks {

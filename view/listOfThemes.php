@@ -27,10 +27,13 @@
     <?php } ?>
 
     <!-- add a new theme button -->
-    <span class="badge badge-secondary">
-      <a href="?ctrl=theme&method=addNewTheme" class="nounderline" style="color: white;">
-        <i class="fas fa-plus"></i>
-      </a>
-    </span>
+    <!-- ajouter uniquement pour les admins ! -->
   </section>
+  <div class="flex buttonDiv">
+    <button type="button" class="myButton">
+      <a href="?ctrl=theme&method=addNewTheme" class="nounderline" style="color: white;">
+        <i class="fas fa-plus"></i> Add a new Theme
+      </a>
+    </button>
+  </div>
 </div>

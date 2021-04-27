@@ -16,19 +16,19 @@ class SecurityController
       // on va se prémunir des failles XSS, on va utiliser des "filter input"
       $userName = filter_input(INPUT_POST, "userName", FILTER_SANITIZE_STRING);
       $email = filter_input(INPUT_POST, "userEmail", FILTER_SANITIZE_EMAIL);
-      $passWord1 = filter_input(INPUT_POST, "firstPassword", FILTER_SANITIZE_STRING);
-      $passWord2 = filter_input(INPUT_POST, "secondPassword", FILTER_SANITIZE_STRING);
+      $password1 = filter_input(INPUT_POST, "firstPassword", FILTER_SANITIZE_STRING);
+      $password2 = filter_input(INPUT_POST, "secondPassword", FILTER_SANITIZE_STRING);
       // $userName = $_POST['userName'];
       // $email = $_POST['email'];
-      // $passWord1 = $_POST['passWord1'];
-      // $passWord2 = $_POST['passWord2'];
+      // $password1 = $_POST['passWord1'];
+      // $password2 = $_POST['passWord2'];
       var_dump($_POST);
 
-      if ($userName && $email && $passWord1 && $passWord2) {
+      if ($userName && $email && $password1 && $password2) {
         // on vérifie si tous les champs ont été renseignés
 
         // on vérifie si les 2 mdp correspondent
-        if ($passWord1 == $passWord2) {
+        if ($password1 == $password2) {
 
           // on va instancier le user manager
           $model = new UserManager();
@@ -39,7 +39,7 @@ class SecurityController
             if (!$model->findOneByEmail($email)) {
 
               // hashage du mdp
-              $hash = password_hash($passWord1, PASSWORD_ARGON2I); //PASSWORD_BCRYPT possible également
+              $hash = password_hash($password1, PASSWORD_ARGON2I); //PASSWORD_BCRYPT possible également
 
               // enfin si on rajoute l'utilisateur en bdd
               if ($model->addUser($userName, $email, $hash)) {
