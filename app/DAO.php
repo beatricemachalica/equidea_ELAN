@@ -16,7 +16,7 @@ abstract class DAO
     {
 
         //connexion à la BDD
-        // si une problème avec UTF8 il faut rajouter après DB_NAME: .';charset=utf8'
+        // si une problème avec UTF8 il faut rajouter après DB_NAME .';charset=utf8'
         try {
             $pdo = new \PDO(
                 'mysql:host=' . self::DB_HOST . ';dbname=' . self::DB_NAME,

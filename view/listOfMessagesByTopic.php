@@ -5,7 +5,7 @@ App\Session::getUser();
 
 $topic = $data['topic'];
 
-// Call to a member function getId() on string
+// ERROR : Call to a member function getId() on string
 // $user_id = $_SESSION['user']->getId();
 // var_dump($user_id);
 
