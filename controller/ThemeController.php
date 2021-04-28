@@ -4,19 +4,21 @@ namespace Controller;
 
 use Model\Manager\ThemeManager;
 use Model\Manager\TopicManager;
+use App\Session;
 
 class ThemeController
 {
   public function themeList()
   {
-
+    $userStatus = session::getUser()->getStatus();
     $themeModel = new ThemeManager;
     $themes = $themeModel->findAll();
 
     return [
       "view" => "listOfThemes.php",
       "data" => [
-        "themes" => $themes
+        "themes" => $themes,
+        "userStatus" => $userStatus
       ]
     ];
   }

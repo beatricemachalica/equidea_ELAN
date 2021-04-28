@@ -23,17 +23,16 @@
           </figcaption>
         </figure>
       </div>
-
     <?php } ?>
-
-    <!-- add a new theme button -->
-    <!-- ajouter uniquement pour les admins ! -->
   </section>
+  <!-- add a new theme button -->
   <div class="flex buttonDiv">
-    <button type="button" class="myButton">
-      <a href="?ctrl=theme&method=addNewTheme" class="nounderline" style="color: white;">
-        <i class="fas fa-plus"></i> Add a new Theme
-      </a>
-    </button>
+    <?php if ($data['userStatus'] == "admin") { ?>
+      <button type="button" class="myButton">
+        <a href="?ctrl=theme&method=addNewTheme" class="nounderline" style="color: white;">
+          <i class="fas fa-plus"></i> Add a new Theme
+        </a>
+      </button>
+    <?php } ?>
   </div>
 </div>
