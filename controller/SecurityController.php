@@ -75,7 +75,7 @@ class SecurityController
       if ($user = $model->findOneByPseudo($username)) {
         if (password_verify($password, $user->getPassword())) {
 
-          Session::setUser($username);
+          Session::setUser($user);
           // on va mettre l'utilisateur en session
           Router::redirectTo("home");
           // redirection

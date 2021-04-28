@@ -64,6 +64,24 @@ class TopicManager extends AbstractManager
     );
   }
 
+  public function findTopicsByUserId($id)
+  {
+    $sql = "SELECT *
+    FROM topic t
+    INNER JOIN user u
+    ON u.id_user = t.user_id
+    WHERE t.user_id = :id";
+
+    return self::getResults(
+      self::select(
+        $sql,
+        ["id" => $id],
+        true
+      ),
+      self::$classname
+    );
+  }
+
   public function findOneByName($name)
   {
     $sql = "SELECT *

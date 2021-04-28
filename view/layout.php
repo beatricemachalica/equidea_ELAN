@@ -61,7 +61,7 @@
               ?>
                 <a href="?ctrl=theme&method=themeList" style="color:white;" class="nounderline nav-link">All themes</a>
                 <a href="?ctrl=user&method=usersList" style="color:white;" class="nounderline nav-link">All users</a>
-                <a href="?ctrl=###&method=####" style="color:white;" class="nounderline nav-link">
+                <a href="?ctrl=user&method=userAccount&user=<?= $_SESSION['user']->getPseudonym(); ?>" style="color:white;" class="nounderline nav-link">
                   <i class="fas fa-user"></i> My account
                 </a>
                 <a href="?ctrl=security&method=logout" style="color:white;" class="nounderline nav-link">Log Out</a>

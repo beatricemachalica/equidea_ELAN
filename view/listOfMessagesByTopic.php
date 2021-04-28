@@ -1,16 +1,8 @@
 <?php
-// session_start();
 App\Session::getUser();
-// var_dump($_SESSION);
 
 $topic = $data['topic'];
-
-// ERROR : Call to a member function getId() on string
-// $user_id = $_SESSION['user']->getId();
-// var_dump($user_id);
-
-$user = $_SESSION['user'];
-// var_dump($user);
+$user = $_SESSION['user']->getPseudonym();
 ?>
 
 <div class="listContainer">
@@ -22,7 +14,7 @@ $user = $_SESSION['user'];
 
   <!-- nb of topics -->
   <p class="text-center infoOfListTopics">
-    There is <?= count($data['messages']); ?> messages in this topic.
+    There is <?= count($data['messages']); ?> message(s) in this topic.
   </p>
 
   <!-- Messages -->
@@ -54,7 +46,6 @@ $user = $_SESSION['user'];
               <label for="exampleTitle">Write your answer below</label>
               <textarea name="textMessage" class="form-control" id="messageTextarea" rows="2"></textarea>
               <input name="topicId" type="hidden" id="topicId" value="<?= $data['topic']->getId(); ?>">
-              <!-- <input name="userId" type="hidden" id="user" value="<.= $_SESSION['user']->getId(); ?>"> -->
               <input name="username" type="hidden" id="username" value="<?= $user; ?>">
             </div>
             <button type="submit" class="btn myButton btnSubmit">Send</button>

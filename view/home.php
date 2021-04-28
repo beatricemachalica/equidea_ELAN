@@ -2,7 +2,7 @@
 
   <?php if (App\Session::getUser()) {
 
-    echo "<h2>Welcome " . $_SESSION['user'] . "</h2>";
+    echo "<h2>Welcome " . $_SESSION['user']->getPseudonym() . "</h2>";
   } else { ?>
     <h2>Welcome riders</h2>
 

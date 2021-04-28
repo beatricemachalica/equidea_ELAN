@@ -132,6 +132,11 @@ video {
   background-color: rgba(40, 40, 40, 0.5);
   border-radius: 25px;
 }
+.backgroundForm textarea {
+  background-color: rgba(180, 180, 180, 0.6);
+  border-color: rgb(75, 75, 75);
+  color: white;
+}
 .form input {
   background-color: rgba(180, 180, 180, 0.6);
   border-color: rgb(75, 75, 75);
@@ -151,7 +156,8 @@ video {
   background-color: rgba(40, 40, 40, 0.5);
   padding: 15px;
   border-radius: 20px;
-  max-height: 700px;
+  min-height: 700px;
+  max-height: 730px;
   overflow: auto;
 }
 .list {
@@ -202,17 +208,20 @@ video {
   margin: 10px;
 }
 
-/* bug here = random height */
 .dropdown-menu {
   /* top: 240px !important; */
   width: 100% !important;
   color: white;
   background-color: rgba(40, 40, 40, 0.8);
   padding: 15px;
-  border-radius: 20px;
 }
 .dropdown-menu .myButton {
   width: 10% !important;
+}
+.dropdown-menu textarea {
+  background-color: rgba(180, 180, 180, 0.6);
+  border-color: rgb(75, 75, 75);
+  color: white;
 }
 
 /* Footer */
