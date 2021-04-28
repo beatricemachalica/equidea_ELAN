@@ -66,7 +66,7 @@ class TopicManager extends AbstractManager
 
   public function findOneByName($name)
   {
-    $sql = "SELECT title
+    $sql = "SELECT *
     FROM topic
     WHERE title = :title";
     return self::select(

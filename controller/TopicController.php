@@ -54,12 +54,19 @@ class TopicController
       if (!$topicModel->findOneByName($topicTitle)) {
         $newTopic = $topicModel->addTopic($topicTitle, $themeId, $userId);
 
-        // on récupère l'id du nouveau topic
-        $lastId = DAO::getConnection()->lastInsertId();
+        // on récupère l'id du nouveau topic avec lastInsertId()
+        // $lastId = DAO::getConnection()->lastInsertId();
+        // $lastId2 = DAO::getConnection()->lastInsertId($newTopic);
         // Blog cinéma exemple :
         // $lastId = $dao->getBdd()->lastInsertId();
+        // var_dump($lastId);
+        // result : string(1) "0"
 
-        $newMessage = $messageModel->addMessageForTopic($message, $lastId, $userId);
+        $topicAdded = $topicModel->findOneByName($topicTitle);
+        $topicId = $topicAdded["id_topic"];
+
+        // add message
+        $newMessage = $messageModel->addMessageForTopic($message, $topicId, $userId);
 
         header("Location:?ctrl=theme&method=themeList");
       } else {
