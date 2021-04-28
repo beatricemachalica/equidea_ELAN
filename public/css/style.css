@@ -164,6 +164,12 @@ video {
   color: white;
   font-size: 1.3rem;
 }
+.listTopicsPosted {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 /* Themes Gallery */
 .gallery {

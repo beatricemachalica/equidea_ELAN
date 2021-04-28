@@ -4,7 +4,7 @@ App\Session::getUser();
 ?>
 
 <div class="list listContainer">
-  <h2 class="text-center" style="margin-bottom: 40px;">Account Informations</h2>
+  <h2 class="title">Account Informations</h2>
 
   <!-- About me & profil picture -->
   <!-- <table class="table table-borderless" style="color: white;">
@@ -41,28 +41,46 @@ App\Session::getUser();
         <td><?= $_SESSION['user']->getDateRegistration(); ?></td>
         <td><?= $_SESSION['user']->getEmail(); ?></td>
         <td><a href="" style="color:white;">Change my password</a></td>
+        <td><a href="" style="color:white;"><i class="fas fa-user-edit"></i></a></td>
       </tr>
     </tbody>
   </table>
 
   <!-- Topics & messages posted by this user -->
-  <h3 class="text-center">Topics posted</h3>
-  <div class="list">
+  <h3 class="text-center">Your Topics</h3>
+  <div>
     <ul class="list-unstyled">
       <?php foreach ($data['topics'] as $topic) { ?>
-        <li style="padding: 10px;">
+
+        <li class="listTopicsPosted">
+
+          <!-- Topic title & link -->
           <a href="?ctrl=topic&method=listMessagesByTopic&id=<?= $topic->getId(); ?>" class="topicsTitles">
             <?= $topic->getTitle() . " "; ?>
           </a>
+
+          <!-- Creation date -->
           <?= "Posted on " . $topic->getDateCreation(); ?>
-          <?= "In <a href='?ctrl=theme&method=listTopicsByCategory&id=" . $topic->getTheme()->getId() . "' style='color:white;'>" .
-            $topic->getTheme()->getTitle() .
-            "</a>"; ?>
-          <span class="badge badge-secondary badge-pill">
+
+          <!-- Theme title & link -->
+          <?= "<span> In <a href='?ctrl=theme&method=listTopicsByCategory&id=" . $topic->getTheme()->getId() . "' style='color:white;'>" .
+            "<strong style=''>" . $topic->getTheme()->getTitle() . "</strong>" .
+            "</a></span>"; ?>
+
+          <!-- Messages count (work in progress) -->
+          <span class="badge badge-info badge-pill">
             3
-            <!-- <= count($data['messages']); ?> -->
           </span>
+
+          <!-- Edit button -->
+          <span class="badge badge-secondary badge-pill">
+            <a href="?ctrl=topic&method=editTopicById&id=<?= $topic->getId(); ?>" style='color:white;'>
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+          </span>
+
         </li>
+
       <?php } ?>
     </ul>
   </div>

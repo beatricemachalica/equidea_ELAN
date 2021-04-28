@@ -85,4 +85,29 @@ class TopicController
       ]
     ];
   }
+  // edit topic
+  public function editTopicById()
+  {
+    $topicId = (isset($_GET['id'])) ? $_GET['id'] : null;
+    $topicModel = new TopicManager;
+    $currentTopic = $topicModel->findOneById($topicId);
+    $currentTopicTitle = $currentTopic->getTitle();
+
+    if (!empty($_POST['topicTitle'])) {
+      $newTopicTitle = filter_input(INPUT_POST, "topicTitle", FILTER_SANITIZE_STRING);
+      // on vérifie si le topic n'existe pas déjà
+      if (!$topicModel->findOneByName($newTopicTitle)) {
+        $topicModel->editTopic($topicId, $newTopicTitle);
+        header("Location:?ctrl=theme&method=themeList");
+      } else {
+        var_dump("this topic already exists");
+      }
+    }
+    return [
+      "view" => "editTopicForm.php",
+      "data" => [
+        "topicTitle" => $currentTopicTitle
+      ]
+    ];
+  }
 }

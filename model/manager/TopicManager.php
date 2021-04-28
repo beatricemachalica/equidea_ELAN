@@ -68,8 +68,6 @@ class TopicManager extends AbstractManager
   {
     $sql = "SELECT *
     FROM topic t
-    INNER JOIN user u
-    ON u.id_user = t.user_id
     WHERE t.user_id = :id";
 
     return self::getResults(
@@ -104,6 +102,21 @@ class TopicManager extends AbstractManager
         "title" => $title,
         "themeId" => $theme_id,
         "userId" => $user_id
+      ]
+    );
+  }
+
+  public function editTopic($id, $title)
+  {
+    // edit theme_id ?
+    $sql = "UPDATE topic
+    SET title = :title
+    WHERE id_topic = :id";
+    return self::update(
+      $sql,
+      [
+        "id" => $id,
+        "title" => $title
       ]
     );
   }

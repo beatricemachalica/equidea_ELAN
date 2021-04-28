@@ -9,7 +9,7 @@ $themeTitle = $data["themeTitle"];
 
 <div class="loginDiv form">
   <div class="backgroundForm" style="width: 70%;">
-    <form action="?ctrl=topic&method=addNewTopic&id_theme=<?= $themeId; ?>&user=<?= $user; ?>&" method="post">
+    <form action="?ctrl=topic&method=addNewTopic&id_theme=<?= $themeId; ?>&user=<?= $user; ?>" method="post">
       <h2 class="text-center">Add a new topic in: <?= $themeTitle; ?> </h2>
 
       <!-- new topic title -->
