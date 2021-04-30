@@ -66,7 +66,8 @@ class TopicManager extends AbstractManager
 
   public function findTopicsByUserId($id)
   {
-    $sql = "SELECT *
+    // ajouter count ici pour les messages
+    $sql = "SELECT * 
     FROM topic t
     WHERE t.user_id = :id";
 
@@ -108,7 +109,6 @@ class TopicManager extends AbstractManager
 
   public function editTopic($id, $title)
   {
-    // edit theme_id ?
     $sql = "UPDATE topic
     SET title = :title
     WHERE id_topic = :id";
@@ -119,5 +119,12 @@ class TopicManager extends AbstractManager
         "title" => $title
       ]
     );
+  }
+
+  public function deleteTopicById($topicId)
+  {
+    $sql = "DELETE FROM topic
+    WHERE id_topic = :id";
+    return self::delete($sql, ["id" => $topicId]);
   }
 }

@@ -43,6 +43,37 @@ class MessageManager extends AbstractManager
       self::$classname
     );
   }
+  public function findFirstPostByTopic($topicId)
+  {
+    $sql = "SELECT * 
+    FROM messages
+    WHERE topic_id = :id
+    ORDER BY dateCreation ASC
+    LIMIT 1";
+
+    return self::getOneOrNullResult(
+      self::select(
+        $sql,
+        ["id" => $topicId],
+        false
+      ),
+      self::$classname
+    );
+  }
+
+  public function editMessage($messageId, $newMessage)
+  {
+    $sql = "UPDATE messages
+    SET text = :text
+    WHERE id_message = :id";
+    return self::update(
+      $sql,
+      [
+        "id" => $messageId,
+        "text" => $newMessage
+      ]
+    );
+  }
 
   public function addMessageForTopic($text, $idTopic, $idUser)
   {
@@ -57,5 +88,11 @@ class MessageManager extends AbstractManager
         "idUser" => $idUser
       ]
     );
+  }
+  public function deleteMessagesByTopic($topicId)
+  {
+    $sql = "DELETE FROM messages
+    WHERE topic_id = :id";
+    return self::delete($sql, ["id" => $topicId]);
   }
 }

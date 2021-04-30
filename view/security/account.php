@@ -79,6 +79,13 @@ App\Session::getUser();
             </a>
           </span>
 
+          <!-- Delete button -->
+          <span class="badge badge-danger badge-pill">
+            <a href="?ctrl=topic&method=deleteTopicById&idTopic=<?= $topic->getId(); ?>&userId=<?= $_SESSION['user']->getId(); ?>" onclick="return confirm('Are you sure you want to delete this topic?');" style='color:white;'>
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </span>
+
         </li>
 
       <?php } ?>

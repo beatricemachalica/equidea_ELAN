@@ -92,12 +92,22 @@ class TopicController
     $topicModel = new TopicManager;
     $currentTopic = $topicModel->findOneById($topicId);
     $currentTopicTitle = $currentTopic->getTitle();
+    $postModel = new MessageManager;
+    $firstPost = $postModel->findFirstPostByTopic($topicId);
+    $message = $firstPost->getText();
+    $messageId = $firstPost->getId();
 
-    if (!empty($_POST['topicTitle'])) {
+    if (!empty($_POST['topicTitle']) && !empty($_POST['message'])) {
+
       $newTopicTitle = filter_input(INPUT_POST, "topicTitle", FILTER_SANITIZE_STRING);
+      $newMessage = filter_input(INPUT_POST, "message", FILTER_SANITIZE_STRING);
+
       // on vérifie si le topic n'existe pas déjà
       if (!$topicModel->findOneByName($newTopicTitle)) {
+
+        // edit methods
         $topicModel->editTopic($topicId, $newTopicTitle);
+        $postModel->editMessage($messageId, $newMessage);
         header("Location:?ctrl=theme&method=themeList");
       } else {
         var_dump("this topic already exists");
@@ -106,8 +116,39 @@ class TopicController
     return [
       "view" => "editTopicForm.php",
       "data" => [
-        "topicTitle" => $currentTopicTitle
+        "topicTitle" => $currentTopicTitle,
+        "firstMessage" => $message
       ]
+    ];
+  }
+  // delete topic
+  public function deleteTopicById()
+  {
+    $topicId = (isset($_GET['idTopic'])) ? $_GET['idTopic'] : null;
+    $userId = (isset($_GET['userId'])) ? $_GET['userId'] : null;
+
+    $topicModel = new TopicManager;
+    $messagesModel = new MessageManager;
+
+    $currentTopic = $topicModel->findOneById($topicId);
+    $topicAuthor = $currentTopic->getUser();
+    $topicAuthorId = $topicAuthor->getId();
+
+    // user id topic = user id session ?
+    if ($topicAuthorId == $userId) {
+
+      // first we have to delete messages
+      $messagesModel->deleteMessagesByTopic($topicId);
+
+      // delete topic
+      $topicModel->deleteTopicById($topicId);
+      header("Location:?ctrl=theme&method=themeList");
+    } else {
+      var_dump("you are not allowed to do this");
+    }
+    return [
+      "view" => "home.php",
+      "data" => null
     ];
   }
 }
