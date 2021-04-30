@@ -40,4 +40,20 @@ abstract class Router
         header("Location:?ctrl=" . $ctrl . "&method=" . $method);
         die();
     }
+
+    // CSRF protection
+    public static function CSRFProtection($token)
+    {
+        if (!empty($_POST)) {
+            if (isset($_POST['token'])) {
+                $form_crsf = $_POST['token'];
+                if (hash_equals($form_crsf, $token)) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return true;
+    }
 }

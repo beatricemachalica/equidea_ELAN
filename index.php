@@ -25,6 +25,16 @@ define('CTRL_PATH', ROOT_DIR . 'controller' . DS);
 define('SERVICE_PATH', ROOT_DIR . 'app' . DS);
 define('MODEL_PATH', ROOT_DIR . 'model' . DS);
 
+// token session
+Session::generateKey();
+$token = hash_hmac("sha256", "passphrase", Session::getKey());
+
+if (Router::CSRFProtection($token)) {
+  $result = Router::handleRequest($_GET);
+} else {
+  Router::redirectTo("security", "logout");
+}
+
 
 $result = Router::handleRequest($_GET);
 ob_start();

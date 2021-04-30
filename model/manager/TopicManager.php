@@ -66,10 +66,16 @@ class TopicManager extends AbstractManager
 
   public function findTopicsByUserId($id)
   {
-    // ajouter count ici pour les messages
-    $sql = "SELECT * 
+    // $sql = "SELECT * 
+    // FROM topic t
+    // WHERE t.user_id = :id";
+
+    $sql = "SELECT t.id_topic, t.title, t.dateCreation, t.theme_id, t.user_id, 
+    COUNT(m.id_message) AS nbMessages
     FROM topic t
-    WHERE t.user_id = :id";
+    LEFT JOIN messages m ON t.id_topic = m.topic_id
+    WHERE t.user_id = :id
+    GROUP BY t.id_topic";
 
     return self::getResults(
       self::select(

@@ -45,4 +45,16 @@ abstract class Session
             Router::redirectTo("security", "login");
         }
     }
+
+    // token
+    public static function generateKey()
+    {
+        if (!isset($_SESSION['key']) || $_SESSION['key'] === null) {
+            $_SESSION['key'] = bin2hex(random_bytes(32));
+        }
+    }
+    public static function getKey()
+    {
+        return $_SESSION['key'];
+    }
 }

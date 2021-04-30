@@ -16,12 +16,14 @@ Réalisation d'un mock-up à l'aide d'AbodeXD (également en format PDF dans le 
 - liste des grands thèmes du forum ;
 - liste des sujets par thème, ainsi que la date de création et l'auteur du sujet ;
 - inscription d'un nouveau utilisateur ;
+- connexion à un compte et déconnexion ;
+- ajout des messages dans les sujets (topics) ;
+- ajout topic et modification ;
+- suppression d'un topic et de ses messages
 
 ### Pistes d'amélioration :
 
-- ajout des messages dans les sujets (topics) ;
 - suppression et modification du compte et des informations de l'utilisateur ;
-- connexion à un compte et déconnexion ;
 - affichage des messages d'erreurs en cas de besoin ;
 - accès administrateur ;
 - animation et amélioration du design ;
@@ -31,6 +33,7 @@ Réalisation d'un mock-up à l'aide d'AbodeXD (également en format PDF dans le 
 Requetes SQL préparées et filtration des inputs :
 
 - protection contre les injections SQL ;
-- protection contre les failles XSS.
+- protection contre les failles XSS ;
+- protection contre la faille CSRF (à l'aide d'un token) ;
 
 Formateurs : Stéphane SMAIL et Gilles MUESS.

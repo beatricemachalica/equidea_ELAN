@@ -55,7 +55,7 @@ class UserController
       $userInformations = $userModel->findOneByPseudo($username);
       $userId = $userInformations->getId();
       $userTopics = $topicModel->findTopicsByUserId($userId);
-      // $messages = $messagesModel->findMessagesByTopic();
+      // count messages ?
     }
 
     return [

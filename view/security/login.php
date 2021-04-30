@@ -23,6 +23,8 @@ if (App\Session::getUser()) {
         <input type="password" name="password" class="form-control" id="exampleInputPassword1">
       </div>
 
+      <input type="hidden" name="token" value="<?= $token ?>">
+
       <button type="submit" class="btn btn-warning btnSubmit">Log in</button>
 
     </form>

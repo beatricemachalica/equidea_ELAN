@@ -93,6 +93,6 @@ class SecurityController
   public function logout()
   {
     Session::removeUser();
-    Router::redirectTo("home");
+    Router::redirectTo("home", "index");
   }
 }

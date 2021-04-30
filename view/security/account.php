@@ -68,9 +68,9 @@ App\Session::getUser();
             "</a></span>"; ?>
 
           <!-- Messages count (work in progress) -->
-          <span class="badge badge-info badge-pill">
-            3
-          </span>
+          <!-- <span class="badge badge-info badge-pill">
+            <= nb messages ?>
+          </span> -->
 
           <!-- Edit button -->
           <span class="badge badge-secondary badge-pill">
